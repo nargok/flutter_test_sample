@@ -5,4 +5,10 @@ class Greeting {
     }
     return 'こんにちは $name さん';
   }
+
+  Future<String> slowGreeting() async {
+    return new Future.delayed(new Duration(seconds: 10), () {
+      return 'こんばんは';
+    });
+  }
 }
