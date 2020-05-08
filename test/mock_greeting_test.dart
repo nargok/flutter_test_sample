@@ -15,4 +15,14 @@ void main() {
     final result = await greeting.slowGreeting();
     expect(result, 'こんばんは');
   });
+
+  test('thenReturn', () {
+    // 返り値だけを変更したいときはthenReturnも使える
+    final greeting = MockGreeting();
+    when(greeting.greeting('太郎')).thenReturn('こんばんは 太郎 さん');
+    expect(greeting.greeting('太郎'), 'こんばんは 太郎 さん');
+
+    // Futureのモックには使えない
+//    when(greeting.slowGreeting()).thenReturn('ハロー');
+  });
 }
